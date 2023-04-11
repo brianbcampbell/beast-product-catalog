@@ -1,0 +1,10 @@
+[
+  {
+    "userId": "vendor_1_id",
+    "title": "vendor One"
+  },
+  {
+    "vendorId": "vendor_2_id",
+    "title": "vendor Two"
+  }
+]

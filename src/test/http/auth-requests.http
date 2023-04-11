@@ -1,0 +1,30 @@
+
+### sign out
+// @no-log
+GET http://localhost:8080/api/auth/signout
+
+### sign in
+// @no-log
+POST http://localhost:8080/api/auth/signin
+content-type: application/json
+
+{"username": "bcadmin", "password": "bc_password_1"}
+
+### sign in (WRONG PW)
+// @no-log
+POST http://localhost:8080/api/auth/signin
+content-type: application/json
+
+{"username": "bcadmin", "password": "NOPE"}
+
+### sign up
+// @no-log
+POST http://localhost:8080/api/auth/signup
+content-type: application/json
+
+{
+  "username": "bcadmin2",
+  "email": "brian2@admin",
+  "password": "w00tw00t",
+  "roles": ["ROLE_USER"]
+}

@@ -1,0 +1,18 @@
+[
+  {
+    "vendorId": "vendor_1_id",
+    "productId":"product_1",
+    "title": "Product One Title",
+    "shortDesc":"heres a desc for our first product",
+    "priceInUSDollars": 49.99,
+    "adminUserIds":""
+  },
+  {
+    "vendorId": "vendor_1_id",
+    "productId":"product_2",
+    "title": "Product Two Title",
+    "shortDesc":"heres anonther desc for our seconnd product",
+    "priceInUSDollars": 39.99,
+    "adminUserIds":""
+  }
+]
