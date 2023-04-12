@@ -1,43 +1,39 @@
 package beast.cart.user;
 
-import beast.cart.models.UserDetails;
-import org.jooq.DSLContext;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import static generated.Tables.USERS;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
 
 @Service
 class UserRepository {
 
-    private final DSLContext jooq;
+    List<UserRecord> users = new ArrayList<>();
 
-    @Autowired
-    public UserRepository(DSLContext context) {
-        this.jooq = context;
+    Optional<UserRecord> findByUsername(String username) {
+        return users.stream()
+                .filter(u -> u.username().equals(username))
+                .findFirst();
     }
 
-    UserDetails findByUsername(String username) {
-        return jooq
-                .select()
-                .from(USERS)
-                .where(USERS.USERNAME.eq(username))
-                .fetchAnyInto(UserDetails.class);
-    }
-
-    boolean existsByUsername(String username) {
-        return jooq.fetchExists(
-                jooq.select().where(USERS.USERNAME.eq(username))
-        );
+    Boolean existsByUsername(String username) {
+        return users.stream()
+                .anyMatch(u -> u.username().equals(username));
     }
 
     Boolean existsByEmail(String email) {
-        return jooq.fetchExists(
-                jooq.select().where(USERS.EMAIL.eq(email))
-        );
+        return users.stream()
+                .anyMatch(u -> u.email().equals(email));
     }
 
-    void save(UserDetails userDetails) throws Exception {
+    public void save(UserRecord userRecord) throws Exception {
+        if (users.stream()
+                .anyMatch(u ->
+                        u.username().equals(userRecord.username()) || u.email().equals(userRecord.email())
+                )
+        ) throw new Exception("user already exists");
 
+        users.add(userRecord);
     }
 }

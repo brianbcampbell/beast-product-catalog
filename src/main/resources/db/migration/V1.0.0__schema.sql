@@ -4,14 +4,6 @@ use product_catalog;
 
 create user if not exists 'app_user' identified by 'app_user_password';
 
-create table `users`
-(
-    username varchar(255) primary key,
-    `password` varchar(255),
-    email    varchar(255)
-);
-grant create,delete,select,update on `users` to app_user;
-
 create table vendor
 (
     vendor_id   varchar(255) primary key,
