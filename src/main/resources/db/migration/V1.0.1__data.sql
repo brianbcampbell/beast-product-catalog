@@ -1,8 +1,3 @@
-insert into `users` (username, `password`, email)
-values ('bcadmin', 'bc_password_1', 'bc1@test.test'),
-       ('bc2', 'bc_password_2', 'bc2@test.test'),
-       ('bc3', 'bc_password_3', 'bc3@test.test');
-
 insert into `vendor` (vendor_id, vendor_name, admin_user_ids)
 values ('v1', 'vendor one', 'bcadmin'),
        ('v2', 'vendor two', 'bcadmin'),

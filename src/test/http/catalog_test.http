@@ -1,0 +1,26 @@
+GET http://localhost:8080/api/product?vendorId=v1
+
+###
+
+POST http://localhost:8080/api/product
+content-type: application/json
+
+{
+  "productId": "ab123",
+  "productTitle": "ABC Cat Litter",
+  "productDesc": "Your cat will pee on it.",
+  "priceUSD": 14.49,
+  "vendorId": "v1"
+}
+###
+
+POST http://localhost:8080/api/product
+content-type: application/json
+
+{
+  "productId": "ab123",
+  "productTitle": "ABCD Cat Litter",
+  "productDesc": "Your cat will pee on it.",
+  "priceUSD": 14.49,
+  "vendorId": "v1"
+}

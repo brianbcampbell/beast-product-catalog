@@ -25,11 +25,12 @@ public class SignupService {
         validateSignup(userDetails);
 
         // SAVE
-//        UserRecord userRecord = new UserRecord();
-//        userRecord.setUsername(userDetails.getUsername());
-//        userRecord.setEmail(userDetails.getEmail());
-//        userRecord.setPassword(encoder.encode(userDetails.getPassword()));    // encode before persist
-        userRepository.save(userDetails);
+        UserRecord userRecord = UserRecord.builder()
+                .username(userDetails.getUsername())
+                .email(userDetails.getEmail())
+                .password(encoder.encode(userDetails.getPassword()))    // encode before persist
+                .build();
+        userRepository.save(userRecord);
     }
 
     private void validateSignup(UserDetails userDetails) throws Exception {

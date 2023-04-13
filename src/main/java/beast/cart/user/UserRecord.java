@@ -1,11 +1,7 @@
 package beast.cart.user;
 
-import lombok.Data;
+import lombok.Builder;
 
-@Data
-class UserRecord {
-    String username;
-    String email;
-    String password;
-
+@Builder
+record UserRecord(String username, String email, String password) {
 }
