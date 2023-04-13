@@ -10,14 +10,14 @@ create table vendor
     vendor_name varchar(255),
     admin_user_ids text
 );
-grant create,delete,select,update on vendor to app_user;
+grant insert,delete,select,update on vendor to app_user;
 
 create table product
 (
     product_id    varchar(255) primary key,
-    product_title varchar(255),
-    product_desc  text,
-    price_usd     float,
-    vendor_id     varchar(255)
+    product_title varchar(255) not null,
+    product_desc  text not null,
+    price_usd     float not null,
+    vendor_id     varchar(255) not null
 );
-grant create,delete,select,update on product to app_user;
+grant insert,delete,select,update on product to app_user;
