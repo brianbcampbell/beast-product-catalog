@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 import static generated.Tables.VENDOR;
 
 @Service
-public class VendorRepository {
+class VendorRepository {
 
     private final DSLContext jooq;
 
@@ -22,5 +22,9 @@ public class VendorRepository {
                 .selectFrom(VENDOR)
                 .where(VENDOR.VENDOR_ID.eq(vendorId))
                 .fetchAnyInto(Vendor.class);
+    }
+
+    public void save(Vendor vendor, String username) {
+
     }
 }

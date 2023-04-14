@@ -1,6 +1,8 @@
+### get
+
 GET http://localhost:8080/api/product?vendorId=v1
 
-###
+### insert
 
 POST http://localhost:8080/api/product
 content-type: application/json
@@ -12,7 +14,8 @@ content-type: application/json
   "priceUSD": 14.49,
   "vendorId": "v1"
 }
-###
+
+### update it
 
 POST http://localhost:8080/api/product
 content-type: application/json
